@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('email');
             $table->string('ra')->unique();
-            $table->string('cpf');
+            $table->string('cpf', 11);
             $table->timestamps();
         });
     }
