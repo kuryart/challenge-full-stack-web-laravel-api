@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Services\AlunoService;
+use App\Http\Requests\AlunoRequest;
+use App\Http\Requests\AlunoRequestUpdate;
 
 class AlunoController extends Controller
 {
@@ -21,7 +23,9 @@ class AlunoController extends Controller
      */
     public function index()
     {
-        //
+        $alunos = $this->alunoService->all();
+
+        return response($alunos, 200);
     }
 
     /**
@@ -37,12 +41,12 @@ class AlunoController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  AlunoRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AlunoRequest $request)
     {
-        //
+        return $this->alunoService->save($request);
     }
 
     /**
@@ -74,9 +78,9 @@ class AlunoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AlunoRequestUpdate $request, $id)
     {
-        //
+        return $this->alunoService->update($request, $id);
     }
 
     /**
@@ -87,6 +91,6 @@ class AlunoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->alunoService->destroy($id);
     }
 }
