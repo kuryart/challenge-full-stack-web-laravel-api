@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\CustomFormRequest;
 
-class AlunoRequest extends CustomFormRequest
+class AlunoRequestUpdate extends CustomFormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,6 @@ class AlunoRequest extends CustomFormRequest
             'cpf' => 'required|string|size:11',
             'email' => 'required|email|max:255',
             'nome' => 'required|string|max:255',
-            'ra' => 'required|string|max:255|unique:alunos,ra',
         ];
     }
 }
